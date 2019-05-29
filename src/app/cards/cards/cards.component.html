@@ -1,0 +1,5 @@
+<mat-card (click)="openDialog()">
+  <h5 class="card-title">{{card.title}}</h5>
+  <p *ngIf="!card.description">No description</p>
+  <p class="card-description">{{card.description}}</p>
+</mat-card>

@@ -1,0 +1,15 @@
+<mat-toolbar>
+  <div>
+    <button mat-raised-button><a class="nav-item nav-link link-boards" routerLink="/boards">Boards</a></button>
+  </div>
+  <h5>{{appName}}</h5>
+  <div *ngIf="!currentUser">
+    <button mat-raised-button><a class="nav-item nav-link link-login" routerLink="/login">Login</a></button>
+    <button mat-raised-button><a class="nav-item nav-link link-register" routerLink="/register">Register</a></button>
+  </div>
+  <div *ngIf="currentUser">
+    <button *ngIf="currentUser" mat-raised-button>
+      <a class="nav-item nav-link link-logout" (click)="logout()">Logout, {{currentUser.username}}</a>
+    </button>
+  </div>
+</mat-toolbar>

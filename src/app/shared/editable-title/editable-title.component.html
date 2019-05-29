@@ -1,0 +1,10 @@
+<span *ngIf="!editingTitle; else titleEdit" (click)="editTitle()">{{title}}</span>
+<ng-template #titleEdit>
+  <input
+    [style.display]="editingTitle ? '' : 'none'"
+    (blur)="updateTitle()"
+    (keyup)="blurOnEnter($event)"
+    appAutofocus
+    [(ngModel)]="title"/>
+</ng-template>
+

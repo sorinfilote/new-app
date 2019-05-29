@@ -1,0 +1,9 @@
+.board-title-text span:hover{
+  cursor: pointer;
+}
+.board-title-box{
+  padding: 20px 0 40px;
+}
+.single-list{
+  border: 1px solid #dddddd;
+}

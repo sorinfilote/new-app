@@ -1,0 +1,27 @@
+/* You can add global styles to this file, and also import other style files */
+/*@import '~bootstrap/dist/css/bootstrap.min.css';*/
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "~@material/layout-grid/dist/mdc.layout-grid.css";
+
+body{
+  margin: 0;
+  padding: 0;
+}
+a{
+  text-decoration: none;
+}
+.text-center{
+  text-align: center;
+}
+.mat-toolbar-single-row {
+  justify-content: space-between;
+}
+.board-cards .mat-card-header{
+  justify-content: center;
+}
+.mat-card {
+  max-width: 85%;
+  margin: 0 auto;
+  text-align: center;
+}

@@ -1,0 +1,49 @@
+<div class="mdc-layout-grid">
+  <div class="mdc-layout-grid__inner">
+    <div class="mdc-layout-grid__cell--span-12"><h2 class="text-center">Boards: </h2></div>
+  </div>
+</div>
+<div class="mdc-layout-grid">
+  <div class="mdc-layout-grid__inner">
+    <div *ngIf="!boards" class="mdc-layout-grid__cell"><p>You don't have any boards.</p></div>
+  </div>
+  <div class="mdc-layout-grid__inner">
+    <div *ngFor="let board of boards" class="mdc-layout-grid__cell--span-3">
+      <mat-card class="board-cards">
+        <mat-card-header>
+          <mat-card-title>{{board.title}}</mat-card-title>
+        </mat-card-header>
+        <mat-card-actions>
+          <button mat-raised-button routerLink="/boards/{{board.board_id}}" color="primary">Open board</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>
+<div class="mdc-layout-grid">
+  <div class="mdc-layout-grid__inner">
+    <div class="mdc-layout-grid__cell"></div>
+    <div class="mdc-layout-grid__cell text-center">
+      <mat-form-field>
+        <input
+          matInput
+          #boardName
+          (keyup.enter)="addBoard(boardName.value);
+          boardName.value=''"
+          type="text" id="myInput"  placeholder="Board name">
+      </mat-form-field>
+      <mat-card-actions>
+        <button
+          mat-raised-button
+          (click)="addBoard(boardName.value);
+          boardName.value=''"
+          color="primary">Add new board</button>
+      </mat-card-actions>
+    </div>
+    <div class="mdc-layout-grid__cell"></div>
+  </div>
+</div>
+
+
+
+

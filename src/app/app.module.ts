@@ -10,6 +10,7 @@ import { BoardsComponent } from './boards/boards.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { HeaderComponent } from './header/header.component';
+// import { FooterComponent } from './footer/footer.component';
 import { BoardsDetailsComponent } from './boards/boards-details/boards-details.component';
 import { ListsComponent } from './lists/lists/lists.component';
 import { CardsComponent } from './cards/cards/cards.component';
@@ -18,7 +19,7 @@ import { AutofocusDirective } from './autofocus.directive';
 import { EditableTitleComponent } from './shared/editable-title/editable-title.component';
 import { ConfirmDeleteDialogComponent } from './shared/confirm-delete-dialog/confirm-delete-dialog.component';
 import { MaterialModule } from './material/material.module';
-import {DragDropModule} from '@angular/cdk/drag-drop';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
     CardsDetailsComponent,
     AutofocusDirective,
     EditableTitleComponent,
-    ConfirmDeleteDialogComponent
+    ConfirmDeleteDialogComponent,
+    // FooterComponent
   ],
   imports: [
     BrowserModule,

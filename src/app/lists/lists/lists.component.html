@@ -1,56 +1,44 @@
-<div class="mdc-layout-grid">
-  <div class="mdc-layout-grid__inner">
-    <div class="mdc-layout-grid__cell--span-6">
-      <h2 class="board-title-text">
-        <app-editable-title [title]="list.title" (titleUpdate)="updateTitle($event)"></app-editable-title>
-      </h2>
-    </div>
-    <div class="mdc-layout-grid__cell--span-6 mdc-layout-grid--align-right">
-      <button mat-raised-button class="btn delete-bt" color="warn" type="button" (click)="deleteList(list.list_id)">x</button>
-    </div>
+<div class="custom-list-fix-top">
+  <p class="board-title-text">
+    <app-editable-title [title]="list.title" (titleUpdate)="updateTitle($event)"></app-editable-title>
+  </p>
+  <div>
+    <!--<button mat-raised-button class="btn delete-bt delete-list-btn" color="warn" type="button" (click)="deleteList(list.list_id)">x</button>-->
+    <button mat-raised-button class="btn delete-bt delete-list-btn" color="warn" type="button" (click)="deleteList(list.list_id)"><i class="fas fa-trash-alt"></i></button>
   </div>
 </div>
-
 <div
   cdkDropList
   id="{{list_id}}"
   [cdkDropListData]="arrayWithCards"
   [cdkDropListConnectedTo]="allDropLists"
-  class="mdc-layout-grid"
+  class="cards-wrapper-in-list"
   *ngIf="arrayWithCards"
   (cdkDropListDropped)="drop($event)">
-  <div class="mdc-layout-grid__inner">
-    <div *ngFor="let card of arrayWithCards" class="mdc-layout-grid__cell--span-12" [attr.data-card-id]="card.card_id" cdkDrag>
+    <div *ngFor="let card of arrayWithCards" class="single-card-box" [attr.data-card-id]="card.card_id" cdkDrag>
       <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
       <app-cards
         [card]="card"
         (cardDeleted)="updateCards($event)">
       </app-cards>
     </div>
-  </div>
-</div>
-
-
-<div class="mdc-layout-grid">
-  <div class="mdc-layout-grid__inner">
-    <div class="mdc-layout-grid__cell text-center">
-      <mat-form-field>
-        <input
-          matInput
-          #CardName
-          (keyup.enter)="addCard(CardName.value);
-          CardName.value=''"
-          type="text" id="myInput"  placeholder="Card name">
-      </mat-form-field>
-      <br>
-      <mat-card-actions>
-        <button
-          mat-raised-button
-          (click)="addCard(CardName.value);
-          CardName.value=''">New card
-        </button>
-      </mat-card-actions>
-    </div>
+  <div class="single-card-box box-add-new-card">
+    <mat-form-field class="add-new-card-form-field">
+      <input
+        matInput
+        #CardName
+        (keyup.enter)="addCard(CardName.value);
+        CardName.value=''"
+        type="text" id="myInput"  placeholder="Card name">
+    </mat-form-field>
+    <br>
+    <mat-card-actions>
+      <button
+        mat-raised-button
+        (click)="addCard(CardName.value);
+        CardName.value=''"
+        color="primary">Add new card</button>
+    </mat-card-actions>
   </div>
 </div>
 

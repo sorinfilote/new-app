@@ -1,3 +1,20 @@
 a{
   cursor:pointer;
 }
+.mat-toolbar {
+  height: 55px;
+  position: fixed;
+  top: 0;
+  z-index: 99;
+}
+.mat-raised-button{
+  line-height: 30px;
+}
+.custom-app-title{
+  font-size: 25px;
+  font-weight: 600;
+  /*text-transform: uppercase;*/
+}
+.custom-login-btn {
+  margin-right: 10px;
+}

@@ -1,6 +1,7 @@
 <span *ngIf="!editingTitle; else titleEdit" (click)="editTitle()">{{title}}</span>
 <ng-template #titleEdit>
   <input
+    class="editable-input-title"
     [style.display]="editingTitle ? '' : 'none'"
     (blur)="updateTitle()"
     (keyup)="blurOnEnter($event)"

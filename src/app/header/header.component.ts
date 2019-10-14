@@ -11,7 +11,7 @@ import { User } from '../auth/user';
 export class HeaderComponent implements OnInit {
 
   currentUser: User;
-  appName = 'Project Mananger App';
+  appName = 'TaskTool';
 
   constructor(
     private authService: AuthService,

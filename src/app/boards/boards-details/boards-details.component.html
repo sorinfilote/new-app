@@ -1,52 +1,47 @@
-<div class="mdc-layout-grid">
-  <div class="mdc-layout-grid__inner">
-    <div class="mdc-layout-grid__cell--span-6">
-      <h2 class="board-title-text">
-        <app-editable-title
-          [title]="board.title"
-          (titleUpdate)="updateTitle($event)">
-        </app-editable-title>
-      </h2>
-    </div>
-    <div class="mdc-layout-grid__cell--span-6 mdc-layout-grid--align-right">
-      <button mat-raised-button class="btn delete-bt " color="warn" type="button" (click)="deleteBoard()">Delete Board</button>
+<div class="board-details-wrapper">
+  <div class="board-details-box-fixed">
+    <h2 class="board-title-text">
+      <app-editable-title
+        [title]="board.title"
+        (titleUpdate)="updateTitle($event)">
+      </app-editable-title>
+    </h2>
+    <div>
+      <!--<button mat-raised-button class="btn delete-bt " color="warn" type="button" (click)="deleteBoard()">Delete Board</button>-->
+      <button mat-raised-button class="btn delete-bt " color="warn" type="button" (click)="deleteBoard()"><i class="fas fa-trash-alt"></i></button>
     </div>
   </div>
+  <div class="board-lists-wrapper" *ngIf="boardsLists">
+      <div class="single-list-box" *ngFor="let list of boardsLists" >
+        <app-lists
+          [allDropLists]="allDropLists"
+          [list]="list"
+          (listUpdate)="updateList($event)">
+        </app-lists>
+      </div>
+      <div class="single-list-box add-new-list">
+        <div class="add-new-list-wrapper">
+          <mat-form-field class="add-new-list-form-field">
+            <input
+              matInput
+              #ListName
+              (keyup.enter)="addList(ListName.value);
+          ListName.value=''"
+              type="text" id="myInput"  placeholder="List name">
+          </mat-form-field>
+          <br>
+          <mat-card-actions>
+            <button
+              mat-raised-button
+              (click)="addList(ListName.value);
+          ListName.value=''"
+              color="primary">Add new list</button>
+          </mat-card-actions>
+        </div>
+      </div>
+    </div>
+
 </div>
 
-<div class="mdc-layout-grid">
-  <div class="mdc-layout-grid__inner" *ngIf="boardsLists">
-    <div class="mdc-layout-grid__cell--span-3 single-list" *ngFor="let list of boardsLists" >
-       <app-lists
-         [allDropLists]="allDropLists"
-         [list]="list"
-         (listUpdate)="updateList($event)">
-       </app-lists>
-    </div>
-  </div>
-</div>
-<div class="mdc-layout-grid">
-  <div class="mdc-layout-grid__inner">
-    <div class="mdc-layout-grid__cell"></div>
-    <div class="mdc-layout-grid__cell text-center">
-      <mat-form-field>
-        <input
-          matInput
-          #ListName
-          (keyup.enter)="addList(ListName.value);
-          ListName.value=''"
-          type="text" id="myInput"  placeholder="List name">
-      </mat-form-field>
-      <br>
-      <mat-card-actions>
-        <button
-          mat-raised-button
-          (click)="addList(ListName.value);
-          ListName.value=''"
-          color="primary">Add new list</button>
-      </mat-card-actions>
-    </div>
-    <div class="mdc-layout-grid__cell"></div>
-  </div>
-</div>
+
 

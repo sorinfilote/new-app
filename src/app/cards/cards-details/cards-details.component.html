@@ -1,39 +1,30 @@
-<div class="mdc-layout-grid__inner">
-  <div class="mdc-layout-grid__cell--span-6">
-    <h2 mat-dialog-title>
-      <app-editable-title
-        [title]="card.title"
-        (titleUpdate)="updateTitle($event)">
-      </app-editable-title>
-    </h2>
-  </div>
-  <div class="mdc-layout-grid__cell--span-6 mdc-layout-grid--align-right">
-    <button mat-raised-button class="btn delete-bt " color="warn" type="button" (click)="deleteCard(card.card_id)">Delete Card</button>
-  </div>
+<div class="header-popup-card">
+  <p mat-dialog-title class="popup-card-title">
+    <app-editable-title
+      [title]="card.title"
+      (titleUpdate)="updateTitle($event)">
+    </app-editable-title>
+  </p>
+  <button mat-raised-button class="btn delete-bt " color="warn" type="button" (click)="deleteCard(card.card_id)"><i class="fas fa-trash-alt"></i></button>
 </div>
-<div class="mdc-layout-grid__inner">
-  <div class="mdc-layout-grid__cell--span-12">
-    <mat-dialog-content>
-      <div class="card-description-box d-flex justify-content-between">
-        <h5 class="card-description-text">
-          <span
-            [style.display]="editingDescription ? 'none' : ''"
-            (click)="editDescription()">
-            {{card.description}}
-          </span>
-              <input
-                [style.display]="editingDescription ? '' : 'none'"
-                (blur)="updateDescription()"
-                [(ngModel)]="card.description"/>
-        </h5>
-      </div>
-    </mat-dialog-content>
-  </div>
+<div class="content-popup-card">
+    <p class="card-description-text">
+        <span
+          [style.display]="editingDescription ? 'none' : ''"
+          (click)="editDescription()">
+          {{card.description}}
+        </span>
+      <textarea rows="6"
+        [style.display]="editingDescription ? '' : 'none'"
+        (blur)="updateDescription()"
+        (keyup)="blurOnEnter($event)"
+        [(ngModel)]="card.description">
+      </textarea>
+    </p>
 </div>
-<div class="mdc-layout-grid__inner">
-  <div class="mdc-layout-grid__cell--span-12">
-    <mat-dialog-actions>
-      <button class="mat-raised-button"(click)="close()">Close</button>
-    </mat-dialog-actions>
-  </div>
+<div class="footer-popup-card">
+  <mat-dialog-actions>
+    <button class="mat-raised-button"(click)="close()">Close</button>
+  </mat-dialog-actions>
 </div>
+

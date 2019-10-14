@@ -1,15 +1,21 @@
 <mat-toolbar>
   <div>
-    <button mat-raised-button><a class="nav-item nav-link link-boards" routerLink="/boards">Boards</a></button>
+    <button mat-raised-button class="desktop-btn">
+      <a class="nav-item nav-link link-boards" routerLink="/boards">Boards</a>
+    </button>
+    <a class="boards-mobile custom-icon mobile-btn" routerLink="/boards"><i class="fas fa-home"></i></a>
   </div>
-  <h5>{{appName}}</h5>
+  <p class="custom-app-title">{{appName}}</p>
   <div *ngIf="!currentUser">
-    <button mat-raised-button><a class="nav-item nav-link link-login" routerLink="/login">Login</a></button>
-    <button mat-raised-button><a class="nav-item nav-link link-register" routerLink="/register">Register</a></button>
+    <button mat-raised-button class="custom-login-btn desktop-btn"><a class="nav-item nav-link link-login" routerLink="/login">Login</a></button>
+    <a class="login-mobile custom-icon mobile-btn" routerLink="/login"><i class="fas fa-sign-in-alt"></i></a>
+    <button mat-raised-button class="custom-register-btn desktop-btn"><a class="nav-item nav-link link-register" routerLink="/register">Register</a></button>
+    <a class="register-mobile custom-icon mobile-btn" routerLink="/register"><i class="fas fa-user-plus"></i></a>
   </div>
   <div *ngIf="currentUser">
-    <button *ngIf="currentUser" mat-raised-button>
-      <a class="nav-item nav-link link-logout" (click)="logout()">Logout, {{currentUser.username}}</a>
+    <button  mat-raised-button class="desktop-btn">
+      <a class="nav-item nav-link link-logout" (click)="logout()">Logout, <span>{{currentUser.username}}</span></a>
     </button>
+    <a class="logout-mobile custom-icon mobile-btn" (click)="logout()"><i class="fas fa-sign-out-alt"></i></a>
   </div>
 </mat-toolbar>

@@ -11,7 +11,7 @@ export class LoggedinGuard implements CanActivate {
   constructor(
     private router: Router,
     private authService: AuthService
-  ){ }
+  ) { }
 
   canActivate(route: ActivatedRouteSnapshot , state: RouterStateSnapshot) {
     const currentUser = this.authService.currentUserValue();

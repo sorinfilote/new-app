@@ -69,6 +69,12 @@ export class CardsDetailsComponent implements OnInit {
     }
   }
 
+  blurOnEnter(event) {
+    if (event.keyCode === 13) {
+      event.target.blur();
+    }
+  }
+
   deleteCard(card_id) {
     this.confirmationDialogRef = this.dialog.open(ConfirmDeleteDialogComponent, {
       minWidth: '80vw'

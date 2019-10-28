@@ -1,4 +1,4 @@
-export  class Card{
+export  class Card {
   card_id: number;
   list_id: number;
   title: string;
